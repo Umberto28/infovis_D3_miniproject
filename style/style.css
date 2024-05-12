@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #61917e;
+}
+
+.first-section {
+  background-color: #61917e;
+  height: 75vh;
+}
+
+span, label {
+  font-family: 'Jost', sans-serif;
+}
+
+.overlay-card {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 83%;
+  max-width: 85%;
+  padding: 20px;
+  background-color: #eff2f1;
+  border: 1px solid #61917e !important;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#data-case-info {
+  width: 33% !important;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Interactive Mosquito</title>
+        <link rel="stylesheet" href="./style/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+        
+        <!-- Including Bootstrap 5.3.3 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <nav class="navbar fixed-top">
+            <div class="container-fluid d-flex justify-content-center">
+                <span class="mt-3 mb-1 h1 text-white">Interactive Mosquito</span>
+            </div>
+        </nav>
+
+        <div class="first-section vh-75">
+            <div id="main-card" class="overlay-card d-flex justify-content-evenly">
+                <div id="chart" class="mt-4"></div>
+                <div id="data-case-info" class="d-flex flex-column mt-4">
+                    <span id="data-case-id" class="h2 mt-1 mb-3"></span>
+                    <span id="data-case-var1" class="h3 mb-3"></span>  
+                    <span id="data-case-var2" class="h3"></span>
+                    <div class="form-check form-switch mt-4">
+                        <input class="form-check-input" type="checkbox" role="switch" id="togglePopover">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">
+                          Enable Popovers
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Including Bootstrap 5.3.3 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <!-- Including D3 and custom scripts -->
+        <script src="./scripts/d3.v7.min.js"></script>
+        <script src="./scripts/script.js"></script>
+    </body>
+</html>
