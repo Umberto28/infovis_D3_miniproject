@@ -6,7 +6,9 @@ d3.json("data.json")
     
     // Get chart size attributes, based on its container card...
     var card = d3.select("#main-card")
-    const cardSize = parseInt(card.style("height")) * 0.9;
+    var cardHeight = parseInt(card.style("height"));
+    var cardWidth = parseInt(card.style("width"));
+    const cardSize = Math.min(cardHeight, cardWidth) * 0.85;
     const margin = {top: 10, right: 10, bottom: 50, left: 50},
         width = cardSize - margin.left - margin.right,
         height = cardSize - margin.top - margin.bottom;
@@ -61,7 +63,8 @@ d3.json("data.json")
       .text("Var 2");
     
     // Add the mosquito svg to the chart using the first data-case as default coordinates
-    const mosqSize = 53;
+    const ratio = 633.6/50; // experimental value
+    const mosqSize = height/ratio;
     var mosquito = svg.append("image")
       .attr("id", "mosquito")
       .attr("class", "pop-element")
