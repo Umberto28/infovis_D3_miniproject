@@ -25,3 +25,5 @@ This project aims to create an interactive visualization using D3.js to represen
 - **data.json:** JSON file containing the multivariate data used for generating the scatter plot.
 
 #### Demo
+
+- [Interactive Mosquito](https://umberto28.github.io/infovis_D3_miniproject/)
