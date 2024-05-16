@@ -1,3 +1,7 @@
+/*
+Crea un file json con dei dati multivariati: ci sono 10 data-cases e ogni data-case ha due variabili quantitative i cui valori sono tutti positivi. In base a questi dati disegna una piccola zanzara (è sufficiente la silhouette) nelle coordinate x ed y dello schermo corrispondenti alle due variabili del primo data-case. Facendo click sullo sfondo la zanzara si sposta in una nuova posizione corrispondente al secondo data-case. Cliccando ancora si passa al terzo data-case e così via fino a ritornare al primo data-case e ricominiciare da capo. Se l'utente fa click con il pulsante sinistro del mouse sulla zanzara questa invece ritorna al punto precedente della sequenza. Fai in modo che i cambi di posizione della zanzara avvengano con un'animazione fluida. Usa le scale d3.js per mappare l'intervallo dei valori delle variabili (che deve poter essere arbitrario) sull'intervallo dei valori delle coordinate, che dipende dalla tua interfaccia.
+*/
+
 d3.json("data.json")
   .then(function(data_cases) {
     
@@ -33,18 +37,19 @@ d3.json("data.json")
         .attr("stroke", "black")
         .attr("stroke-width", 1)
     
-    // Get the max value in json data
+    // Get the max value in json data (with a little offset)
     function getMax(data) {
       var maxX = d3.max(data, function(d) { return d.var1; });
       var maxY = d3.max(data, function(d) { return d.var2; });
     
-      return Math.max(maxX, maxY)
+      var maxGlobal = Math.max(maxX, maxY);
+      return Math.ceil(maxGlobal * 1.05);
     }
     
     // Add axis to the plane, using the max value to map the domain
     const max = getMax(data_cases)
-    const xScale = d3.scaleLinear().domain([0, max + 2]).range([0, width]);
-    const yScale = d3.scaleLinear().domain([0, max + 2]).range([height, 0]);
+    const xScale = d3.scaleLinear().domain([0, max]).range([0, width]);
+    const yScale = d3.scaleLinear().domain([0, max]).range([height, 0]);
     
     svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(xScale)).select(".domain").remove();
     svg.append("g").call(d3.axisLeft(yScale)).select(".domain").remove();
